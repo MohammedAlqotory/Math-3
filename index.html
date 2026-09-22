@@ -181,6 +181,35 @@
             margin-top: 10px;
         }
 
+        /* تنسيق الجداول التوضيحية داخل الصندوق */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        .info-table th, .info-table td {
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .info-table th {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--primary);
+        }
+
+        .info-table td {
+            background: rgba(17, 24, 39, 0.6);
+        }
+
+        .analogy {
+            color: #facc15;
+            font-size: 0.92rem;
+            margin-top: 4px;
+        }
+
         /* لضمان اتساق اتجاه المعادلات الرياضية داخل الصفحة */
         .katex-display {
             direction: ltr !important;
@@ -237,11 +266,60 @@
         
         <div class="content-box">
             <h3>1. منحنيات ومستويات المنسوب (Level Curves & Surfaces)</h3>
-            <ul>
-                <li><b>منحنى المنسوب (Level Curve):</b> للدوال في متغيرين مستقلين \(z = f(x, y)\)، نثبت الدالة عند ثابت \(f(x, y) = c\) لتمثيل مقاطع السطح في بعدين 2D.</li>
-                <li><b>مستوى المنسوب (Level Surface):</b> للدوال في 3 متغيرات مستقلة \(w = f(x, y, z)\)، وعند وضع \(f(x, y, z) = c\) ينتج سطح في الفضاء ثلاثي الأبعاد 3D.</li>
-                <li><b>محاور دراسة الدالة:</b> مجال التعريف (Domain)، النهايات (Limits)، الاتصال (Continuity)، وقابلية الاشتقاق (Differentiability).</li>
-            </ul>
+            
+            <div style="margin-bottom: 14px;">
+                <b>• منحنى المنسوب (Level Curve):</b>
+                <p style="color: var(--text-muted); margin-top: 4px;">
+                    - <b>الدالة الأصلية:</b> دالة في متغيرين مستقلين \(z = f(x, y)\) (مدخلين ومخرج واحد، ورسمها الكامل يحتاج 3D).<br>
+                    - <b>فكرة الـ Level:</b> بنثبت الارتفاع عند ثابت \(z = c\) لنحصل على: \(f(x, y) = c\).<br>
+                    - <b>النتيجة:</b> علاقة في متغيرين تُرسم كـ <b>منحنى في بعدين (2D)</b> على المستوى \(xy\).
+                </p>
+                <p class="analogy">💡 <b>تخيلها:</b> زي خطوط الكنتور في الخرائط الجغرافية؛ بتمثل نقاط بنفس الارتفاع لكنها مرسومة على خريطة مسطحة 2D.</p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 12px 0;">
+
+            <div style="margin-bottom: 14px;">
+                <b>• مستوى/سطح المنسوب (Level Surface):</b>
+                <p style="color: var(--text-muted); margin-top: 4px;">
+                    - <b>الدالة الأصلية:</b> دالة في 3 متغيرات مستقلة \(w = f(x, y, z)\) (3 مدخلات ومخرج واحد، ورسمها الكامل يحتاج 4D وده مستحيل بصرياً).<br>
+                    - <b>فكرة الـ Level:</b> بنثبت القيمة الناتجة عند ثابت \(w = c\) لنحصل على: \(f(x, y, z) = c\).<br>
+                    - <b>النتيجة:</b> علاقة تربط 3 متغيرات وتُرسم كـ <b>سطح مجسم في الفراغ ثلاثي الأبعاد (3D)</b>.
+                </p>
+                <p class="analogy">💡 <b>تخيلها:</b> توزيع درجة الحرارة داخل غرفة؛ كل نقطة \((x, y, z)\) لها حرارة \(w\). لو جمعت كل النقاط اللي حرارتها \(25^\circ\text{C}\) هينتج لك مجسم ثلاثي الأبعاد يمثل سطح درجة الحرارة دي.</p>
+            </div>
+
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>المفهوم</th>
+                        <th>الدالة الأصلية</th>
+                        <th>تثبيت الناتج عند \(c\)</th>
+                        <th>المعادلة الناتجة</th>
+                        <th>الشكل ومكان الرسم</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Level Curve</b></td>
+                        <td>\(z = f(x, y)\)</td>
+                        <td>\(f(x, y) = c\)</td>
+                        <td>متغيرين (\(x, y\))</td>
+                        <td><b>منحنى</b> في المستوى <b>2D</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>Level Surface</b></td>
+                        <td>\(w = f(x, y, z)\)</td>
+                        <td>\(f(x, y, z) = c\)</td>
+                        <td>3 متغيرات (\(x, y, z\))</td>
+                        <td><b>سطح مجسم</b> في الفراغ <b>3D</b></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 15px;">
+                <b>• محاور دراسة الدالة:</b> مجال التعريف (Domain)، النهايات (Limits)، الاتصال (Continuity)، وقابلية الاشتقاق (Differentiability).
+            </div>
         </div>
 
         <div class="content-box">
