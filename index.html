@@ -260,7 +260,7 @@
             margin-top: 6px;
         }
 
-        /* حاوية مرنة ومقاومة للقص لأي معادلة رياضية */
+        /* حاوية مرنة تمنع قص المعادلات نهائياً */
         .math-block {
             direction: ltr !important;
             overflow-x: auto;
@@ -309,7 +309,7 @@
 
 <div class="container">
 
-    <!-- 1. شاشة البداية الموحدة في المنتصف -->
+    <!-- 1. شاشة البداية -->
     <div id="welcome-screen" class="screen active">
         <h1 class="hero-title">MATH 3 📐</h1>
         <div class="btn-center">
@@ -431,10 +431,11 @@
             </div>
         </div>
 
+        <!-- صندوق حل المسألة بتنسيق نظيف لمنع أي تداخل BiDi -->
         <div class="example-box">
             <h3 style="color: #10b981;">💡 حل مسألة المحاضرة بالتفصيل</h3>
-            <p><b>الدالة المعطاة:</b> \(f(x, y) = 4y^3 - x^2 y\)</p>
-            <p>المطلوب إيجاد المشتقة الاتجاهية عند النقطة \((2, 1)\):</p>
+            <p><b>الدالة المعطاة:</b> &rlm;<span class="ltr-text">\(f(x, y) = 4y^3 - x^2 y\)</span></p>
+            <p>المطلوب إيجاد المشتقة الاتجاهية عند النقطة &rlm;<span class="ltr-text">\((2, 1)\)</span>:</p>
             
             <p style="margin-top: 10px;"><b>1. حساب متجه التدرج (Gradient Vector):</b></p>
             <div class="math-block">
@@ -449,7 +450,7 @@
             
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 14px 0;">
             
-            <p><b>2. المطلوب الأول:</b> في اتجاه متجه الوحدة \(\vec{u} = \frac{\sqrt{3}}{2}\hat{i} + \frac{1}{2}\hat{j}\):</p>
+            <p><b>2. المطلوب الأول:</b> في اتجاه متجه الوحدة &lrm;<span class="ltr-text">\(\vec{u} = \frac{\sqrt{3}}{2}\hat{i} + \frac{1}{2}\hat{j}\)</span> :</p>
             <div class="math-block">
                 $$D_{\vec{u}} f(2, 1) = \nabla f(2, 1) \cdot \vec{u}$$
             </div>
@@ -459,8 +460,8 @@
             
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 14px 0;">
             
-            <p><b>3. المطلوب الثاني:</b> في الاتجاه من النقطة \((2, 1)\) إلى النقطة \((4, 0)\):</p>
-            <p>المتجه الواصل من البداية \((2, 1)\) إلى النهاية \((4, 0)\):</p>
+            <p><b>3. المطلوب الثاني:</b> في الاتجاه من النقطة &rlm;<span class="ltr-text">\((2, 1)\)</span> إلى النقطة &rlm;<span class="ltr-text">\((4, 0)\)</span>:</p>
+            <p>المتجه الواصل من البداية &rlm;<span class="ltr-text">\((2, 1)\)</span> إلى النهاية &rlm;<span class="ltr-text">\((4, 0)\)</span>:</p>
             <div class="math-block">
                 $$\vec{v} = (4 - 2)\hat{i} + (0 - 1)\hat{j} = 2\hat{i} - \hat{j}$$
             </div>
