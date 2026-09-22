@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 3 Hub | منصة الرياضيات الجامعية</title>
+    <!-- خط وتنسيقات أنيقة -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة عرض المعادلات الرياضية KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary: #38bdf8;
+            --accent: #a855f7;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #0f172a 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .screen {
+            display: none;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+            animation: fadeIn 0.4s ease;
+        }
+
+        .active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #f8fafc;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-center {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            padding: 8px 18px;
+            font-size: 0.95rem;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: none;
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 650px) {
+            .branches-grid { grid-template-columns: 1fr; }
+        }
+
+        .branch-card {
+            background: rgba(17, 24, 39, 0.85);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+        }
+
+        .content-box {
+            background: rgba(15, 23, 42, 0.9);
+            border-right: 4px solid var(--primary);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+
+        .example-box {
+            background: rgba(6, 78, 59, 0.15);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            line-height: 1.9;
+        }
+
+        .content-box h3, .example-box h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .rule-item {
+            background: rgba(56, 189, 248, 0.05);
+            border: 1px dashed rgba(56, 189, 248, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 1. شاشة البداية -->
+    <div id="welcome-screen" class="screen active">
+        <h1>📐 MATH 3 HUB</h1>
+        <p class="subtitle">الملخص الأكاديمي الشامل لمحاضرات الهندسة والعلوم<br>مرجعك التفاعلي المنظم لتلخيص المفاهيم، القوانين، والمسائل خطوة بخطوة.</p>
+        <div class="btn-center">
+            <button class="btn" onclick="navigateTo('branches-screen')">🚀 التالي (Next)</button>
+        </div>
+    </div>
+
+    <!-- 2. شاشة اختيار الفروع -->
+    <div id="branches-screen" class="screen">
+        <h2>اختر المسار الدراسي (Branch)</h2>
+        <p class="subtitle">حدد القسم الذي تريد مراجعته الآن</p>
+        
+        <div class="branches-grid">
+            <div class="branch-card" onclick="navigateTo('several-screen')">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">🌀 الفرع الأول</h3>
+                <h4 style="margin-bottom: 12px;">Multivariable Calculus</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">دوال في عدة متغيرات، منحنيات المنسوب، مؤثر نابلا، ومتجه التدرج.</p>
+            </div>
+            
+            <div class="branch-card" onclick="navigateTo('diff-screen')">
+                <h3 style="color: var(--accent); margin-bottom: 10px;">⚡ الفرع الثاني</h3>
+                <h4 style="margin-bottom: 12px;">Differential Equations</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">المعادلات التفاضلية وتطبيقاتها وطرق حل الرتب الأولى والعليا.</p>
+            </div>
+        </div>
+
+        <div class="btn-center">
+            <button class="btn btn-back" onclick="navigateTo('welcome-screen')">⬅ العودة للرئيسية</button>
+        </div>
+    </div>
+
+    <!-- 3. شاشة الفرع الأول: Multivariable Calculus -->
+    <div id="several-screen" class="screen">
+        <button class="btn btn-back" onclick="navigateTo('branches-screen')">⬅ رجوع لقائمة الفروع</button>
+        
+        <h2>📚 Lecture 1: Multivariable Calculus</h2>
+        
+        <div class="content-box">
+            <h3>1. منحنيات ومستويات المنسوب (Level Curves & Surfaces)</h3>
+            <ul>
+                <li><b>منحنى المنسوب (Level Curve):</b> للدوال في متغيرين \(z = f(x, y) = c\)، نثبت الارتفاع عند ثابت \(c\) يقع في مدى الدالة لتقطيع السطح أفقياً ورسم تضاريسه في بعدين 2D.</li>
+                <li><b>مستوى المنسوب (Level Surface):</b> للدوال في 3 متغيرات \(w = f(x, y, z) = c\)، وينتج عنها مجسم ثلاثي الأبعاد 3D.</li>
+                <li><b>محاور دراسة الدالة:</b> التعريف (Domain)، النهايات (Limits)، الاتصال (Continuity)، والاشتقاق (Differentiability).</li>
+            </ul>
+        </div>
+
+        <div class="content-box">
+            <h3>2. مؤثر نابلا ومتجه التدرج (Gradient Vector)</h3>
+            <p>مؤثر نابلا في 3D:</p>
+            <p>$$\nabla = \frac{\partial}{\partial x}\hat{i} + \frac{\partial}{\partial y}\hat{j} + \frac{\partial}{\partial z}\hat{k}$$</p>
+            <p>متجه التدرج للدالة \(f\):</p>
+            <p>$$\nabla f(x, y, z) = f_x \hat{i} + f_y \hat{j} + f_z \hat{k}$$</p>
+        </div>
+
+        <div class="content-box">
+            <h3>3. المشتقة الاتجاهية (Directional Derivative)</h3>
+            <p>معدل تغير الدالة في اتجاه متجه وحدة \(\vec{u}\):</p>
+            <p>$$D_{\vec{u}} f(a, b) = \nabla f(a, b) \cdot \vec{u} = \|\nabla f\| \cos\theta$$</p>
+            <div class="rule-item">
+                <b>📌 قواعد الاختبارات:</b><br>
+                - أقصى زيادة: عند \(\theta = 0\) وقيمتها العظمى \(\|\nabla f\|\).<br>
+                - أقصى تناقص: عند \(\theta = \pi\) وقيمتها \(-\|\nabla f\|\).<br>
+                - معدل تغير صفري: عند \(\theta = 90^\circ\).<br>
+                - <b>خاصية هندسية:</b> متجه التدرج \(\nabla f\) يكون دائماً <b>عمودياً</b> على منحنى المنسوب (Level Curve).
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3 style="color: #10b981;">💡 حل مسألة المحاضرة بالتفصيل</h3>
+            <p><b>الدالة المعطاة:</b> \(f(x, y) = x^2 y - 4y^3\)</p>
+            <p>المطلوب إيجاد \(D_{\vec{u}} f(2, 1)\):</p>
+            <p><b>1. حساب التدرج:</b></p>
+            <p>$$\nabla f(x, y) = 2xy \hat{i} + (x^2 - 12y^2)\hat{j} \implies \nabla f(2, 1) = 4\hat{i} - 8\hat{j}$$</p>
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 10px 0;">
+            <p><b>2. المطلوب الأول:</b> في اتجاه \(\vec{u} = \left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\):</p>
+            <p>$$D_{\vec{u}} f(2, 1) = 4\left(\frac{\sqrt{3}}{2}\right) - 8\left(\frac{1}{2}\right) = 2\sqrt{3} - 4$$</p>
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 10px 0;">
+            <p><b>3. المطلوب الثاني:</b> من \((2, 1)\) إلى \((4, 0)\):</p>
+            <p>$$\vec{v} = (4-2)\hat{i} + (0-1)\hat{j} = 2\hat{i} - \hat{j} \implies \vec{u} = \frac{2}{\sqrt{5}}\hat{i} - \frac{1}{\sqrt{5}}\hat{j}$$</p>
+            <p>$$D_{\vec{u}} f(2, 1) = \frac{4(2) + (-8)(-1)}{\sqrt{5}} = \frac{16}{\sqrt{5}}$$</p>
+        </div>
+    </div>
+
+    <!-- 4. شاشة الفرع الثاني: Differential Equations -->
+    <div id="diff-screen" class="screen">
+        <button class="btn btn-back" onclick="navigateTo('branches-screen')">⬅ رجوع لقائمة الفروع</button>
+        
+        <h2>⚡ Differential Equations</h2>
+        <div class="content-box" style="border-right-color: var(--accent);">
+            <h3 style="color: var(--accent);">قسم المعادلات التفاضلية</h3>
+            <p>هذا المسار مجهز ومعزول تماماً داخل الكود. بمجرد تزويدنا بمحاضرات هذا الفرع، سيتم وضع القوانين، والتفريغ، وحلول المسائل الخاصة بها هنا فوراً.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function navigateTo(screenId) {
+        document.querySelectorAll('.screen').forEach(screen => {
+            screen.classList.remove('active');
+        });
+        document.getElementById(screenId).classList.add('active');
+        if (window.renderMathInElement) {
+            renderMathInElement(document.body);
+        }
+    }
+</script>
+
+</body>
+</html>
