@@ -9,7 +9,7 @@
     <!-- مكتبة عرض المعادلات الرياضية KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
     <style>
         :root {
@@ -180,6 +180,16 @@
             padding: 12px;
             margin-top: 10px;
         }
+
+        /* لضمان اتساق اتجاه المعادلات الرياضية داخل الصفحة */
+        .katex-display {
+            direction: ltr !important;
+            text-align: center;
+        }
+        .katex {
+            direction: ltr !important;
+            unicode-bidi: isolate;
+        }
     </style>
 </head>
 <body>
@@ -228,9 +238,9 @@
         <div class="content-box">
             <h3>1. منحنيات ومستويات المنسوب (Level Curves & Surfaces)</h3>
             <ul>
-                <li><b>منحنى المنسوب (Level Curve):</b> للدوال في متغيرين \(z = f(x, y) = c\)، نثبت الارتفاع عند ثابت \(c\) يقع في مدى الدالة لتقطيع السطح أفقياً ورسم تضاريسه في بعدين 2D.</li>
-                <li><b>مستوى المنسوب (Level Surface):</b> للدوال في 4 متغيرات \(w = f(x, y, z) = c\)، وينتج عنها مجسم ثلاثي الأبعاد 3D.</li>
-                <li><b>محاور دراسة الدالة:</b> التعريف (Domain)، النهايات (Limits)، الاتصال (Continuity)، والاشتقاق (Differentiability).</li>
+                <li><b>منحنى المنسوب (Level Curve):</b> للدوال في متغيرين مستقلين \(z = f(x, y)\)، نثبت الدالة عند ثابت \(f(x, y) = c\) لتمثيل مقاطع السطح في بعدين 2D.</li>
+                <li><b>مستوى المنسوب (Level Surface):</b> للدوال في 3 متغيرات مستقلة \(w = f(x, y, z)\)، وعند وضع \(f(x, y, z) = c\) ينتج سطح في الفضاء ثلاثي الأبعاد 3D.</li>
+                <li><b>محاور دراسة الدالة:</b> مجال التعريف (Domain)، النهايات (Limits)، الاتصال (Continuity)، وقابلية الاشتقاق (Differentiability).</li>
             </ul>
         </div>
 
@@ -238,36 +248,47 @@
             <h3>2. مؤثر نابلا ومتجه التدرج (Gradient Vector)</h3>
             <p>مؤثر نابلا في 3D:</p>
             <p>$$\nabla = \frac{\partial}{\partial x}\hat{i} + \frac{\partial}{\partial y}\hat{j} + \frac{\partial}{\partial z}\hat{k}$$</p>
-            <p>متجه التدرج للدالة \(f\):</p>
+            <p>متجه التدرج للدالة \(f(x, y, z)\):</p>
             <p>$$\nabla f(x, y, z) = f_x \hat{i} + f_y \hat{j} + f_z \hat{k}$$</p>
         </div>
 
         <div class="content-box">
             <h3>3. المشتقة الاتجاهية (Directional Derivative)</h3>
             <p>معدل تغير الدالة في اتجاه متجه وحدة \(\vec{u}\):</p>
-            <p>$$D_{\vec{u}} f(a, b) = \nabla f(a, b) \cdot \vec{u} = \|\nabla f\| \cos\theta$$</p>
+            <p>$$D_{\vec{u}} f(a, b) = \nabla f(a, b) \cdot \vec{u} = \|\nabla f(a, b)\| \cos\theta$$</p>
             <div class="rule-item">
                 <b>📌 قواعد الاختبارات:</b><br>
-                - أقصى زيادة: عند \(\theta = 0\) وقيمتها العظمى \(\|\nabla f\|\).<br>
-                - أقصى تناقص: عند \(\theta = \pi\) وقيمتها \(-\|\nabla f\|\).<br>
-                - معدل تغير صفري: عند \(\theta = 90^\circ\).<br>
-                - <b>خاصية هندسية:</b> متجه التدرج \(\nabla f\) يكون دائماً <b>عمودياً</b> على منحنى المنسوب (Level Curve).
+                - <b>أقصى زيادة:</b> في اتجاه التدرج نفسه (\(\theta = 0\)) وقيمتها العظمى \(\|\nabla f\|\).<br>
+                - <b>أقصى تناقص:</b> في عكس اتجاه التدرج (\(\theta = \pi\)) وقيمتها الصغرى \(-\|\nabla f\|\).<br>
+                - <b>معدل تغير صفري:</b> في الاتجاهات المتعامدة مع التدرج (\(\theta = 90^\circ\) أو \(\theta = 270^\circ\)).<br>
+                - <b>خاصية هندسية:</b> متجه التدرج \(\nabla f\) يكون دائماً <b>عمودياً</b> على منحنى المنسوب (Level Curve) المار بالنقطة.
             </div>
         </div>
 
         <div class="example-box">
             <h3 style="color: #10b981;">💡 حل مسألة المحاضرة بالتفصيل</h3>
-            <p><b>الدالة المعطاة:</b> \(f(x, y) = x^2 y - 4y^3\)</p>
-            <p>المطلوب إيجاد \(D_{\vec{u}} f(2, 1)\):</p>
-            <p><b>1. حساب التدرج:</b></p>
-            <p>$$\nabla f(x, y) = 2xy \hat{i} + (x^2 - 12y^2)\hat{j} \implies \nabla f(2, 1) = 4\hat{i} - 8\hat{j}$$</p>
-            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 10px 0;">
-            <p><b>2. المطلوب الأول:</b> في اتجاه \(\vec{u} = \left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\):</p>
-            <p>$$D_{\vec{u}} f(2, 1) = 4\left(\frac{\sqrt{3}}{2}\right) - 8\left(\frac{1}{2}\right) = 2\sqrt{3} - 4$$</p>
-            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 10px 0;">
-            <p><b>3. المطلوب الثاني:</b> من \((2, 1)\) إلى \((4, 0)\):</p>
-            <p>$$\vec{v} = (4-2)\hat{i} + (0-1)\hat{j} = 2\hat{i} - \hat{j} \implies \vec{u} = \frac{2}{\sqrt{5}}\hat{i} - \frac{1}{\sqrt{5}}\hat{j}$$</p>
-            <p>$$D_{\vec{u}} f(2, 1) = \frac{4(2) + (-8)(-1)}{\sqrt{5}} = \frac{16}{\sqrt{5}}$$</p>
+            <p><b>الدالة المعطاة:</b> \(f(x, y) = 4y^3 - x^2 y\)</p>
+            <p>المطلوب إيجاد المشتقة الاتجاهية عند النقطة \((2, 1)\):</p>
+            
+            <p><b>1. حساب متجه التدرج (Gradient Vector):</b></p>
+            <p>$$f_x = \frac{\partial f}{\partial x} = -2xy \implies f_x(2, 1) = -2(2)(1) = -4$$</p>
+            <p>$$f_y = \frac{\partial f}{\partial y} = 12y^2 - x^2 \implies f_y(2, 1) = 12(1)^2 - (2)^2 = 8$$</p>
+            <p>$$\nabla f(2, 1) = -4\hat{i} + 8\hat{j}$$</p>
+            
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
+            
+            <p><b>2. المطلوب الأول:</b> في اتجاه متجه الوحدة \(\vec{u} = \frac{\sqrt{3}}{2}\hat{i} + \frac{1}{2}\hat{j}\):</p>
+            <p>$$D_{\vec{u}} f(2, 1) = \nabla f(2, 1) \cdot \vec{u} = (-4)\left(\frac{\sqrt{3}}{2}\right) + (8)\left(\frac{1}{2}\right) = 4 - 2\sqrt{3}$$</p>
+            
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
+            
+            <p><b>3. المطلوب الثاني:</b> في الاتجاه من النقطة \((2, 1)\) إلى النقطة \((4, 0)\):</p>
+            <p>المتجه من البداية \((2, 1)\) إلى النهاية \((4, 0)\):</p>
+            <p>$$\vec{v} = (4 - 2)\hat{i} + (0 - 1)\hat{j} = 2\hat{i} - \hat{j}$$</p>
+            <p>معيار المتجه: \(\|\vec{v}\| = \sqrt{2^2 + (-1)^2} = \sqrt{5}\)</p>
+            <p>متجه الوحدة: $$\vec{u} = \frac{\vec{v}}{\|\vec{v}\|} = \frac{2}{\sqrt{5}}\hat{i} - \frac{1}{\sqrt{5}}\hat{j}$$</p>
+            <p>المشتقة الاتجاهية:</p>
+            <p>$$D_{\vec{u}} f(2, 1) = \nabla f(2, 1) \cdot \vec{u} = (-4)\left(\frac{2}{\sqrt{5}}\right) + (8)\left(-\frac{1}{\sqrt{5}}\right) = \frac{-8 - 8}{\sqrt{5}} = -\frac{16}{\sqrt{5}}$$</p>
         </div>
     </div>
 
@@ -285,14 +306,28 @@
 </div>
 
 <script>
+    function renderMath() {
+        if (window.renderMathInElement) {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '\\(', right: '\\)', display: false}
+                ],
+                throwOnError: false
+            });
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMath();
+    });
+
     function navigateTo(screenId) {
         document.querySelectorAll('.screen').forEach(screen => {
             screen.classList.remove('active');
         });
         document.getElementById(screenId).classList.add('active');
-        if (window.renderMathInElement) {
-            renderMathInElement(document.body);
-        }
+        renderMath();
     }
 </script>
 
