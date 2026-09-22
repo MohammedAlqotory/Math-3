@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Math 3 Hub | منصة الرياضيات الجامعية</title>
     <!-- خط وتنسيقات أنيقة -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -29,19 +29,25 @@
             font-family: 'Cairo', sans-serif;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             background: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #0f172a 100%);
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
+            align-items: flex-start;
+            padding: 15px;
         }
 
         .container {
             width: 100%;
             max-width: 900px;
+            margin: 0 auto;
         }
 
         .screen {
@@ -50,9 +56,10 @@
             backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 30px 20px;
             box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.3s ease;
+            width: 100%;
         }
 
         .active {
@@ -60,13 +67,13 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
             color: var(--primary);
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 900;
             margin-bottom: 10px;
             text-align: center;
@@ -74,16 +81,17 @@
 
         h2 {
             color: #f8fafc;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 20px;
             text-align: center;
+            word-break: break-word;
         }
 
         p.subtitle {
             color: var(--text-muted);
             text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            font-size: 1rem;
+            margin-bottom: 25px;
             line-height: 1.8;
         }
 
@@ -92,18 +100,18 @@
             background: linear-gradient(135deg, #0284c7, #0369a1);
             color: white;
             border: none;
-            padding: 14px 32px;
-            font-size: 1.1rem;
+            padding: 12px 28px;
+            font-size: 1rem;
             font-weight: 700;
             border-radius: 12px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             text-decoration: none;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 8px 18px -4px rgba(2, 132, 199, 0.4);
         }
 
         .btn-center {
@@ -113,64 +121,58 @@
 
         .btn-back {
             background: rgba(255, 255, 255, 0.1);
-            margin-bottom: 20px;
-            padding: 8px 18px;
-            font-size: 0.95rem;
-        }
-
-        .btn-back:hover {
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: none;
+            margin-bottom: 15px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
         }
 
         .branches-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        @media (max-width: 650px) {
-            .branches-grid { grid-template-columns: 1fr; }
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
         .branch-card {
             background: rgba(17, 24, 39, 0.85);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .branch-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
         }
 
         .content-box {
             background: rgba(15, 23, 42, 0.9);
             border-right: 4px solid var(--primary);
             border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            line-height: 1.9;
+            padding: 18px 14px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            word-wrap: break-word;
         }
 
         .example-box {
             background: rgba(6, 78, 59, 0.15);
             border: 1px solid #10b981;
             border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
-            line-height: 1.9;
+            padding: 18px 14px;
+            margin-top: 15px;
+            line-height: 1.8;
+            word-wrap: break-word;
         }
 
         .content-box h3, .example-box h3 {
             color: var(--primary);
-            margin-bottom: 12px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
         .rule-item {
@@ -179,25 +181,35 @@
             border-radius: 8px;
             padding: 12px;
             margin-top: 10px;
+            font-size: 0.92rem;
         }
 
-        /* تنسيق الجداول التوضيحية داخل الصندوق */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .info-table {
             width: 100%;
+            min-width: 480px;
             border-collapse: collapse;
-            margin-top: 15px;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
         }
 
         .info-table th, .info-table td {
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 10px;
             text-align: center;
         }
 
         .info-table th {
             background: rgba(56, 189, 248, 0.15);
             color: var(--primary);
+            white-space: nowrap;
         }
 
         .info-table td {
@@ -206,18 +218,32 @@
 
         .analogy {
             color: #facc15;
-            font-size: 0.92rem;
-            margin-top: 4px;
+            font-size: 0.9rem;
+            margin-top: 6px;
         }
 
-        /* لضمان اتساق اتجاه المعادلات الرياضية داخل الصفحة */
         .katex-display {
             direction: ltr !important;
             text-align: center;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 6px 0;
+            max-width: 100%;
         }
+
         .katex {
             direction: ltr !important;
             unicode-bidi: isolate;
+            font-size: 1em;
+        }
+
+        @media (max-width: 650px) {
+            body { padding: 10px 8px; }
+            .screen { padding: 20px 12px; }
+            .branches-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.3rem; }
+            .content-box, .example-box { padding: 14px 10px; }
         }
     </style>
 </head>
@@ -241,15 +267,15 @@
         
         <div class="branches-grid">
             <div class="branch-card" onclick="navigateTo('several-screen')">
-                <h3 style="color: var(--primary); margin-bottom: 10px;">🌀 الفرع الأول</h3>
-                <h4 style="margin-bottom: 12px;">Multivariable Calculus</h4>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">دوال في عدة متغيرات، منحنيات المنسوب، مؤثر نابلا، ومتجه التدرج.</p>
+                <h3 style="color: var(--primary); margin-bottom: 8px;">🌀 الفرع الأول</h3>
+                <h4 style="margin-bottom: 8px;">Multivariable Calculus</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">دوال في عدة متغيرات، منحنيات المنسوب، مؤثر نابلا، ومتجه التدرج.</p>
             </div>
             
             <div class="branch-card" onclick="navigateTo('diff-screen')">
-                <h3 style="color: var(--accent); margin-bottom: 10px;">⚡ الفرع الثاني</h3>
-                <h4 style="margin-bottom: 12px;">Differential Equations</h4>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">المعادلات التفاضلية وتطبيقاتها وطرق حل الرتب الأولى والعليا.</p>
+                <h3 style="color: var(--accent); margin-bottom: 8px;">⚡ الفرع الثاني</h3>
+                <h4 style="margin-bottom: 8px;">Differential Equations</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">المعادلات التفاضلية وتطبيقاتها وطرق حل الرتب الأولى والعليا.</p>
             </div>
         </div>
 
@@ -267,7 +293,7 @@
         <div class="content-box">
             <h3>1. منحنيات ومستويات المنسوب (Level Curves & Surfaces)</h3>
             
-            <div style="margin-bottom: 14px;">
+            <div style="margin-bottom: 12px;">
                 <b>• منحنى المنسوب (Level Curve):</b>
                 <p style="color: var(--text-muted); margin-top: 4px;">
                     - <b>الدالة الأصلية:</b> دالة في متغيرين مستقلين \(z = f(x, y)\) (مدخلين ومخرج واحد، ورسمها الكامل يحتاج 3D).<br>
@@ -277,56 +303,58 @@
                 <p class="analogy">💡 <b>تخيلها:</b> زي خطوط الكنتور في الخرائط الجغرافية؛ بتمثل نقاط بنفس الارتفاع لكنها مرسومة على خريطة مسطحة 2D.</p>
             </div>
 
-            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 12px 0;">
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 10px 0;">
 
-            <div style="margin-bottom: 14px;">
+            <div style="margin-bottom: 12px;">
                 <b>• مستوى/سطح المنسوب (Level Surface):</b>
                 <p style="color: var(--text-muted); margin-top: 4px;">
                     - <b>الدالة الأصلية:</b> دالة في 3 متغيرات مستقلة \(w = f(x, y, z)\) (3 مدخلات ومخرج واحد، ورسمها الكامل يحتاج 4D وده مستحيل بصرياً).<br>
                     - <b>فكرة الـ Level:</b> بنثبت القيمة الناتجة عند ثابت \(w = c\) لنحصل على: \(f(x, y, z) = c\).<br>
-                    - <b>النتيجة:</b> علاقة تربط 3 متغيرات وتُرسم كـ <b>سطح مجسم في الفراغ ثلاثي الأبعاد (3D)</b>.
+                    - <b>النتيجة:</b> علاقة تربط 3 متغيرات وتُرسم كـ <b>سطح مجسم في الفراغ ثلاثي الأبعاد (3D)</b>[cite: 5].
                 </p>
-                <p class="analogy">💡 <b>تخيلها:</b> توزيع درجة الحرارة داخل غرفة؛ كل نقطة \((x, y, z)\) لها حرارة \(w\). لو جمعت كل النقاط اللي حرارتها \(25^\circ\text{C}\) هينتج لك مجسم ثلاثي الأبعاد يمثل سطح درجة الحرارة دي.</p>
+                <p class="analogy">💡 <b>تخيلها:</b> توزيع درجة الحرارة داخل غرفة؛ كل نقطة \((x, y, z)\) لها حرارة \(w\). لو جمعت كل النقاط اللي حرارتها \(25^\circ\text{C}\) هينتج لك مجسم ثلاثي الأبعاد يمثل سطح درجة الحرارة دي[cite: 5].</p>
             </div>
 
-            <table class="info-table">
-                <thead>
-                    <tr>
-                        <th>المفهوم</th>
-                        <th>الدالة الأصلية</th>
-                        <th>تثبيت الناتج عند \(c\)</th>
-                        <th>المعادلة الناتجة</th>
-                        <th>الشكل ومكان الرسم</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Level Curve</b></td>
-                        <td>\(z = f(x, y)\)</td>
-                        <td>\(f(x, y) = c\)</td>
-                        <td>متغيرين (\(x, y\))</td>
-                        <td><b>منحنى</b> في المستوى <b>2D</b></td>
-                    </tr>
-                    <tr>
-                        <td><b>Level Surface</b></td>
-                        <td>\(w = f(x, y, z)\)</td>
-                        <td>\(f(x, y, z) = c\)</td>
-                        <td>3 متغيرات (\(x, y, z\))</td>
-                        <td><b>سطح مجسم</b> في الفراغ <b>3D</b></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-wrapper">
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>المفهوم</th>
+                            <th>الدالة الأصلية</th>
+                            <th>تثبيت الناتج عند \(c\)</th>
+                            <th>المعادلة الناتجة</th>
+                            <th>الشكل ومكان الرسم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Level Curve</b></td>
+                            <td>\(z = f(x, y)\)</td>
+                            <td>\(f(x, y) = c\)</td>
+                            <td>متغيرين (\(x, y\))</td>
+                            <td><b>منحنى</b> في المستوى <b>2D</b></td>
+                        </tr>
+                        <tr>
+                            <td><b>Level Surface</b></td>
+                            <td>\(w = f(x, y, z)\)</td>
+                            <td>\(f(x, y, z) = c\)</td>
+                            <td>3 متغيرات (\(x, y, z\))</td>
+                            <td><b>سطح مجسم</b> في الفراغ <b>3D</b>[cite: 5]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <div style="margin-top: 15px;">
-                <b>• محاور دراسة الدالة:</b> مجال التعريف (Domain)، النهايات (Limits)، الاتصال (Continuity)، وقابلية الاشتقاق (Differentiability).
+            <div style="margin-top: 14px;">
+                <b>• محاور دراسة الدالة:</b> مجال التعريف (Domain)، النهايات (Limits)، الاتصال (Continuity)، وقابلية الاشتقاق (Differentiability)[cite: 5].
             </div>
         </div>
 
         <div class="content-box">
-            <h3>2. مؤثر نابلا ومتجه التدرج (Gradient Vector)</h3>
-            <p>مؤثر نابلا في 3D:</p>
+            <h3>2. مؤثر نابلا ومتجه التدرج (Gradient Vector)[cite: 5]</h3>
+            <p>مؤثر نابلا في 3D[cite: 5]:</p>
             <p>$$\nabla = \frac{\partial}{\partial x}\hat{i} + \frac{\partial}{\partial y}\hat{j} + \frac{\partial}{\partial z}\hat{k}$$</p>
-            <p>متجه التدرج للدالة \(f(x, y, z)\):</p>
+            <p>متجه التدرج للدالة \(f(x, y, z)\)[cite: 5]:</p>
             <p>$$\nabla f(x, y, z) = f_x \hat{i} + f_y \hat{j} + f_z \hat{k}$$</p>
         </div>
 
@@ -353,12 +381,12 @@
             <p>$$f_y = \frac{\partial f}{\partial y} = 12y^2 - x^2 \implies f_y(2, 1) = 12(1)^2 - (2)^2 = 8$$</p>
             <p>$$\nabla f(2, 1) = -4\hat{i} + 8\hat{j}$$</p>
             
-            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;">
             
             <p><b>2. المطلوب الأول:</b> في اتجاه متجه الوحدة \(\vec{u} = \frac{\sqrt{3}}{2}\hat{i} + \frac{1}{2}\hat{j}\):</p>
             <p>$$D_{\vec{u}} f(2, 1) = \nabla f(2, 1) \cdot \vec{u} = (-4)\left(\frac{\sqrt{3}}{2}\right) + (8)\left(\frac{1}{2}\right) = 4 - 2\sqrt{3}$$</p>
             
-            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;">
             
             <p><b>3. المطلوب الثاني:</b> في الاتجاه من النقطة \((2, 1)\) إلى النقطة \((4, 0)\):</p>
             <p>المتجه من البداية \((2, 1)\) إلى النهاية \((4, 0)\):</p>
@@ -406,6 +434,7 @@
         });
         document.getElementById(screenId).classList.add('active');
         renderMath();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
 
