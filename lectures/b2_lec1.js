@@ -19,12 +19,12 @@ registerLecture('b2', {
                 <li style="margin-bottom: 8px;">
                     <b>حسب النوع (Type):</b>
                     <ul>
-                      <li style="margin-bottom: 8px;">
-                            <b>عادية (Ordinary Differential Equation - ODE):</b> تحتوي على مشتقات عادية بالنسبة لمتغير مستقل <u>واحد فقط</u>، مثل: \(y(x)\)، حيث: <span dir="ltr" style="unicode-bidi: isolate; font-weight: normal;">\(x y' + x^2 y'' = y \sin x\)</span>.
-                        </li>
-                        <li style="margin-bottom: 8px;">
-                            <b>جزئية (Partial Differential Equation - PDE):</b> تحتوي على مشتقات جزئية بالنسبة لأكثر من متغير مستقل، مثل: \(z(x, y)\)، حيث: <span dir="ltr" style="unicode-bidi: isolate; font-weight: normal;">\(z_{xx} + z_{yy} + \frac{z}{x} = z_{xy}\)</span> (تُدرس لاحقاً في Math 4).
-                        </li>
+                     <li style="margin-bottom: 8px;">
+    <b>عادية (Ordinary Differential Equation - ODE):</b> تحتوي على مشتقات عادية بالنسبة لمتغير مستقل <u>واحد فقط</u>، مثل: \\(y(x)\\)، حيث: <span dir="ltr" style="unicode-bidi: isolate;">\\(x y' + x^2 y'' = y \\sin x\\)</span>.
+</li>
+<li style="margin-bottom: 8px;">
+    <b>جزئية (Partial Differential Equation - PDE):</b> تحتوي على مشتقات جزئية بالنسبة لأكثر من متغير مستقل، مثل: \\(Z(x, y)\\)، حيث: <span dir="ltr" style="unicode-bidi: isolate;">\\(Z_{xx} + Z_{yy} + Z_x = Z_{xy}\\)</span> (تُدرس لاحقاً في Math 4).
+</li>
                     </ul>
                 </li>
                 <li style="margin-bottom: 8px;">
