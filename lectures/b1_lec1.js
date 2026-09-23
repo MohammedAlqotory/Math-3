@@ -71,36 +71,37 @@ registerLecture('b1', {
             <p>معدل تغير الدالة في اتجاه متجه وحدة \\(\\vec{u}\\):</p>
             <div class="math-block">
                <!-- تعديل نص القانون ليشمل معيار u -->
+<!-- تعديل نص القانون ليشمل معيار u -->
 <div class="math-block">
-    $$D_{\vec{u}} f(a, b) = \nabla f(a, b) \cdot \vec{u} = \|\nabla f(a, b)\| \|\vec{u}\| \cos \theta = \|\nabla f(a, b)\| \cos \theta \quad (\text{لأن } \|\vec{u}\| = 1)$$
+    $$D_{\\vec{u}} f(a, b) = \\nabla f(a, b) \\cdot \\vec{u} = \\|\\nabla f(a, b)\\| \\|\\vec{u}\\| \\cos \\theta = \\|\\nabla f(a, b)\\| \\cos \\theta \\quad (\\text{لأن } \\|\\vec{u}\\| = 1)$$
 </div>
 
 <!-- صندوق توضيح طرق إيجاد متجه الوحدة u -->
 <div class="content-box" style="margin-top: 15px; border-right: 4px solid var(--accent); background: rgba(255, 255, 255, 0.03); padding: 14px;">
-    <h4 style="color: #38bdf8; margin-bottom: 10px;">📌 كيف نحصل على متجه الوحدة \(\vec{u}\) إذا لم يكن معطى بشكل مباشر؟</h4>
+    <h4 style="color: #38bdf8; margin-bottom: 10px;">📌 كيف نحصل على متجه الوحدة \\(\\vec{u}\\) إذا لم يكن معطى بشكل مباشر؟</h4>
     <ol style="padding-right: 20px; line-height: 1.8;">
         <li style="margin-bottom: 10px;">
-            <b>إذا أُعطي متجه عادي في الاتجاه \(\vec{v}\):</b>
+            <b>إذا أُعطي متجه عادي في الاتجاه \\(\\vec{v}\\):</b>
             <br>
             نقسم المتجه على معياره ليتحول لمتجه وحدة:
             <div class="math-block" style="margin: 6px 0;">
-                $$\vec{u} = \frac{\vec{v}}{\|\vec{v}\|}$$
+                $$\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$$
             </div>
         </li>
         <li style="margin-bottom: 10px;">
-            <b>إذا أُعطي اتجاه من نقطة إلى أخرى (من \(P\) نحو \(Q\)):</b>
+            <b>إذا أُعطي اتجاه من نقطة إلى أخرى (من \\(P\\) نحو \\(Q\\)):</b>
             <br>
-            نحسب متجه الإزاحة \(\vec{PQ} = Q - P\) أولاً، ثم نقسمه على معياره:
+            نحسب متجه الإزاحة \\(\\vec{PQ} = Q - P\\) أولاً، ثم نقسمه على معياره:
             <div class="math-block" style="margin: 6px 0;">
-                $$\vec{u} = \frac{\vec{PQ}}{\|\vec{PQ}\|}$$
+                $$\\vec{u} = \\frac{\\vec{PQ}}{\\|\\vec{PQ}\\|}$$
             </div>
         </li>
         <li style="margin-bottom: 10px;">
-            <b>إذا أُعطيت زاوية \(\theta\) يصنعها الاتجاه مع محور \(x\) الموجب:</b>
+            <b>إذا أُعطيت زاوية \\(\\theta\\) يصنعها الاتجاه مع محور \\(x\\) الموجب:</b>
             <br>
             نستخدم الصورة المثلثية المباشرة (وهي بطبيعتها متجه وحدة معياره 1):
             <div class="math-block" style="margin: 6px 0;">
-                $$\vec{u} = \langle \cos \theta, \sin \theta \rangle \quad \text{أو} \quad \vec{u} = \cos \theta\,\hat{i} + \sin \theta\,\hat{j}$$
+                $$\\vec{u} = \\langle \\cos \\theta, \\sin \\theta \\rangle \\quad \\text{أو} \\quad \\vec{u} = \\cos \\theta\\,\\hat{i} + \\sin \\theta\\,\\hat{j}$$
             </div>
         </li>
     </ol>
