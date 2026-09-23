@@ -34,11 +34,16 @@ registerLecture('b2', {
                     <p style="color: var(--text-muted); margin-top: 3px;">
                         هو <b>الأس المرفوع لأعلى مشتقة</b> في المعادلة، بشرط التخلص من الكسور والجذور في المشتقات.
                     </p>
-                    <div class="rule-item" style="border-color: rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.05);">
-                        💡 <b>مثال :</b> في المعادلة \\(x y'' + x^2 y^{(4)} + x y^3 = 5 (y''')^2\\):<br>
-                        - أعلى تفاضل هو المشتقة الرابعة \\(y^{(IV)}\\) \\(\\implies\\) <b>Order = 4</b>.<br>
-                        - الأس المرفوع له \\(y^{(IV)}\\) هو واحد \\(\\implies\\) <b>Degree = 1</b>.
-                    </div>
+                    <div class="rule-item" style="border-color: rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.05); padding: 12px; border-radius: 8px;">
+    💡 <b>مثال :</b> في المعادلة:
+    <div style="direction: ltr; text-align: center; margin: 8px 0; font-size: 1.1rem;">
+        $$x y'' + x^2 y^{(4)} + x y^3 = 5 (y''')^2$$
+    </div>
+    <div style="line-height: 1.8;">
+        - أعلى تفاضل هو المشتقة الرابعة \\(y^{(4)}\\) &nbsp; \\(\\implies\\) <b>Order = 4</b>.<br>
+        - الأس المرفوع له \\(y^{(4)}\\) هو واحد &nbsp; \\(\\implies\\) <b>Degree = 1</b>.
+    </div>
+</div>
                 </li>
                 <li style="margin-bottom: 8px;">
                     <b>الخطية (Linearity):</b>
