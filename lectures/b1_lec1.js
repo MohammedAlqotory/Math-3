@@ -14,7 +14,7 @@ registerLecture('b1', {
                     - الفكرة: تثبيت الارتفاع عند ثابت \\(z = c\\) لتقطيع السطح بمستوى أفقي.<br>
                     - النتيجة: علاقة بين متغيرين تُرسم كـ <b>منحنى 2D</b> في المستوى \\(xy\\).
                 </p>
-                <p style="color: #facc15; font-size: 0.92rem; margin-top: 6px;">💡 <b>تخيلها:</b> خطوط الكنتور في الخرائط الجغرافية التي تمثل الارتفاعات الثابتة في رسمة مسطحة.</p>
+                <p style="color:#facc15; font-size:0.92rem; margin-top:6px;">💡 <b>تخيلها:</b> خطوط الكنتور في الخرائط الجغرافية التي تمثل الارتفاعات الثابتة في رسمة مسطحة.</p>
             </div>
 
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 10px 0;">
@@ -69,32 +69,37 @@ registerLecture('b1', {
         <div class="content-box">
             <h3>3. المشتقة الاتجاهية (Directional Derivative)</h3>
             <p>معدل تغير الدالة في اتجاه متجه وحدة \\(\\vec{u}\\):</p>
+            
+            <!-- تم تعديل القانون هنا بإضافة معيار u بالصيغة السليمة -->
             <div class="math-block">
-                $$D_{\\vec{u}} f(a, b) = \\nabla f(a, b) \\cdot \\vec{u} = \\|\\nabla f(a, b)\\| \\|\\vec{u}\\| \\cos \\theta = \\|\\nabla f(a, b)\\| \\cos \\theta \\quad (\\text{لأن } \\|\\vec{u}\\| = 1)$$
+                $$D_{\\vec{u}} f(a, b) = \\nabla f(a, b) \\cdot \\vec{u} = \\|\\nabla f(a, b)\\| \\cdot \\|\\vec{u}\\| \\cos \\theta = \\|\\nabla f(a, b)\\| \\cos \\theta$$
             </div>
 
             <div class="content-box" style="margin-top: 15px; border-right: 4px solid var(--accent); background: rgba(255, 255, 255, 0.03); padding: 14px;">
                 <h4 style="color: #38bdf8; margin-bottom: 10px;">📌 كيف نحصل على متجه الوحدة \\(\\vec{u}\\) إذا لم يكن معطى بشكل مباشر؟</h4>
                 <ol style="padding-right: 20px; line-height: 1.8;">
                     <li style="margin-bottom: 10px;">
-                        <b>إذا أُعطي متجه عادي في الاتجاه \\(\\vec{v}\\):</b><br>
+                        <b>إذا أُعطي متجه عادي في الاتجاه \\(\\vec{v}\\):</b>
+                        <br>
                         نقسم المتجه على معياره ليتحول لمتجه وحدة:
                         <div class="math-block" style="margin: 6px 0;">
                             $$\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$$
                         </div>
                     </li>
                     <li style="margin-bottom: 10px;">
-                        <b>إذا أُعطي اتجاه من نقطة إلى أخرى (من \\(P\\) نحو \\(Q\\)):</b><br>
-                        نحسب متجه الإزاحة \\(\\vec{PQ} = Q - P\\) أولاً، ثم نقسمه على معياره:
+                        <b>إذا أُعطي اتجاه من نقطة إلى أخرى (من P نحو Q):</b>
+                        <br>
+                        نحسب متجه الإزاحة أولاً \\(\\vec{PQ} = Q - P\\)، ثم نقسمه على معياره:
                         <div class="math-block" style="margin: 6px 0;">
                             $$\\vec{u} = \\frac{\\vec{PQ}}{\\|\\vec{PQ}\\|}$$
                         </div>
                     </li>
                     <li style="margin-bottom: 10px;">
-                        <b>إذا أُعطيت زاوية \\(\\theta\\) يصنعها الاتجاه مع محور \\(x\\) الموجب:</b><br>
+                        <b>إذا أُعطيت زاوية \\(\\theta\\) يصنعها الاتجاه مع محور x الموجب:</b>
+                        <br>
                         نستخدم الصورة المثلثية المباشرة (وهي بطبيعتها متجه وحدة معياره 1):
                         <div class="math-block" style="margin: 6px 0;">
-                            $$\\vec{u} = \\langle \\cos \\theta, \\sin \\theta \\rangle \\quad \\text{أو} \\quad \\vec{u} = \\cos \\theta\\,\\hat{i} + \\sin \\theta\\,\\hat{j}$$
+                            $$\\vec{u} = \\cos \\theta \\hat{i} + \\sin \\theta \\hat{j}$$
                         </div>
                     </li>
                 </ol>
@@ -102,10 +107,10 @@ registerLecture('b1', {
 
             <div style="background: rgba(56, 189, 248, 0.05); border: 1px dashed rgba(56, 189, 248, 0.3); border-radius: 10px; padding: 14px; margin-top: 12px; font-size: 0.95rem;">
                 <b>📌 قواعد الاختبارات:</b><br>
-                - <b>أقصى معدل زيادة:</b> عند \\(\\theta = 0\\) وقيمته \\(\\|\\nabla f\\|\\).<br>
-                - <b>أقصى تناقص:</b> عند \\(\\theta = \\pi\\) وقيمته \\(-\\|\\nabla f\\|\\).<br>
-                - <b>معدل تغير صفري:</b> عندما يكون الاتجاه عمودياً على التدرج (\\(\\theta = 90^\\circ\\)).<br>
-                - <b>خاصية هندسية:</b> متجه التدرج \\(\\nabla f\\) يكون دائماً <b>عمودياً</b> على منحنى المنسوب (Level Curve) عند تلك النقطة.
+                - <b>أقصى معدل زيادة:</b> عند \\(\\theta = 0\\) وقيمتها \\(\\|\\nabla f\\|\\).<br>
+                - <b>أقصى تناقص:</b> عند \\(\\theta = \\pi\\) وقيمتها \\(-\\|\\nabla f\\|\\).<br>
+                - <b>معدل تغير صفري:</b> عند \\(\\theta = 90^\\circ\\).<br>
+                - <b>خاصية هندسية:</b> متجه التدرج \\(\\nabla f\\) يكون دائماً <b>عمودياً</b> على منحنى المنسوب (Level Curve).
             </div>
         </div>
 
@@ -115,8 +120,7 @@ registerLecture('b1', {
             <div class="math-block">
                 $$f(x, y) = 4y^3 - x^2 y$$
             </div>
-            
-            <p><b>1. حساب متجه التدرج عند النقطة \\((2, 1)\\):</b></p>
+            <p><b>1. حساب متجه التدرج عند النقطة (2, 1):</b></p>
             <div class="math-block">
                 $$f_x = -2xy \\implies f_x(2, 1) = -4$$
             </div>
@@ -126,17 +130,13 @@ registerLecture('b1', {
             <div class="math-block">
                 $$\\nabla f(2, 1) = -4\\hat{i} + 8\\hat{j}$$
             </div>
-            
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 14px 0;">
-            
             <p><b>2. المطلوب الأول: في اتجاه \\(\\vec{u} = \\frac{\\sqrt{3}}{2}\\hat{i} + \\frac{1}{2}\\hat{j}\\):</b></p>
             <div class="math-block">
                 $$D_{\\vec{u}} f(2, 1) = (-4)\\left(\\frac{\\sqrt{3}}{2}\\right) + (8)\\left(\\frac{1}{2}\\right) = 4 - 2\\sqrt{3}$$
             </div>
-            
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 14px 0;">
-            
-            <p><b>3. المطلوب الثاني: في الاتجاه من \\((2, 1)\\) إلى \\((4, 0)\\):</b></p>
+            <p><b>3. المطلوب الثاني: في الاتجاه من (2, 1) إلى (4, 0):</b></p>
             <div class="math-block">
                 $$\\vec{v} = (4-2)\\hat{i} + (0-1)\\hat{j} = 2\\hat{i} - \\hat{j} \\implies \\vec{u} = \\frac{2}{\\sqrt{5}}\\hat{i} - \\frac{1}{\\sqrt{5}}\\hat{j}$$
             </div>
